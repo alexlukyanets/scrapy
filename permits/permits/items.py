@@ -10,6 +10,7 @@ def parse_date(input_date):
 
 def get_type(string):
     for permit_type in PermitType:
+        print(string)
         if permit_type.value.lower() == string[9:].lower():
             return permit_type.value
 
@@ -35,12 +36,12 @@ class PermitItem(scrapy.Item):
 class PermitType(Enum):
     PORCH_CONSTRUCTION = 'Porch Construction'
     ELECTRIC_WIRING = 'Electric Wiring'
-    WRECKING_DEMOLITION = 'Wrecking Demolition'
+    WRECKING_DEMOLITION = 'Wrecking/Demolition'
     REINSTATE_REVOKED_PMT = 'Reinstate Revoked Pmt'
     SIGNS = 'Signs'
     NEW_CONSTRUCTION = 'New Construction'
     EASY_PERMIT_PROCESS = 'Easy Permit Process'
-    RENOVATION_ALTERATION = 'Renovation Alteration'
+    RENOVATION_ALTERATION = 'Renovation/Alteration'
     FOR_EXTENSION_OF_PMT = 'For Extension Of Pmt'
     SCAFFOLDING = 'Scaffolding'
     ELEVATOR_EQUIPMENT = 'Elevator Equipment'
