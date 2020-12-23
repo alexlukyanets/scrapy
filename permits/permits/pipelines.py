@@ -1,13 +1,17 @@
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+import csv
+
+filename = 'permits.csv'
+fieldnames = ['permit_number', 'permit_type', 'application_date', 'issue_date',
+              'street', 'city', 'state', 'description', 'fee', 'contacts', 'cost']
+
+with open(filename, 'a+', newline='', encoding='utf-8') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
 
 
-# useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
-
-
-class PermitsPipeline:
+class PermitsCrawlerPipeline(object):
     def process_item(self, item, spider):
+        with open(filename, 'a+', newline='', encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writerow(item)
         return item

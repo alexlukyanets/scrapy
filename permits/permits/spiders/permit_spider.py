@@ -48,7 +48,7 @@ class PermitSpider(scrapy.Spider):
         for permit in permits:
             permit_loader = ItemLoader(PermitItem(), response)
             permit_loader.default_output_processor = TakeFirst()
-            # permit_loader = ItemLoader(item=PermitItem, selector=permit)
+
             permit_loader.add_value('permit_number', permit['permit_'])
             permit_loader.add_value('permit_type', permit['permit_type'])
             permit_loader.add_value('application_date', permit['application_start_date'])

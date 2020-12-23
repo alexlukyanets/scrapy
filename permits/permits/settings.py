@@ -12,8 +12,8 @@ BOT_NAME = 'permits'
 SPIDER_MODULES = ['permits.spiders']
 NEWSPIDER_MODULE = 'permits.spiders'
 
-FEED_FORMAT = 'csv'
-FEED_URI = 'permits.csv'
+# FEED_FORMAT = 'csv'
+# FEED_URI = 'permits.csv'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'permits (+http://www.yourdomain.com)'
@@ -64,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'permits.pipelines.PermitsPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'permits.pipelines.PermitsCrawlerPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
